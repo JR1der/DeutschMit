@@ -31,90 +31,50 @@ const AccordionCourse: React.FC<AccordionCourseProps> = ({
       <Accordion className='mb-2.5 rounded-[5px] border-yellow-2 border' expanded={expanded === panel} defaultExpanded
                  onChange={handleChange(panel)}>
         <AccordionSummary
-            expandIcon={<ExpandMoreIcon/>}
+            className='p-2.5 pl-5 md:pl-[30px]' expandIcon={<ExpandMoreIcon sx={{color: '#AE0101'}}/>}
             aria-controls="panel1-content"
-            id="panel1-header"
-            sx={{p: '10px', pl: {xs: '20px', md: '30px'}}}
-        >
+            id="panel1-header">
           <Typography
-              className='text-left font-semibold text-dark-red '
-              variant="h5"
-              sx={{
-                fontSize: {xs: '16px', sm: '20px', md: '22px', lg: '24px'},
-                width: {xs: '20%', sm: '15%', md: '10%', lg: '7%'},
-                textAlign: 'left',
-                fontWeight: '500',
-                color: '#AE0101'
-              }}>{title}</Typography>
-          <Typography variant="h6"
-                      sx={{
-                        textAlign: 'left',
-                        fontSize: {xs: '14px', sm: '15px', md: '16px', lg: '18px'},
-                        fontWeight: '400',
-                        color: '#AE0101'
-                      }}>{subtitle}</Typography>
+              className='text-left font-bold text-my-yellow text-base sm:text-xl md:text-[22px] lg:text-2xl w-1/5 sm:w-[15%] md:w-[10%] lg:w-[7%]'
+              variant="h5">{title}</Typography>
+          <Typography
+              className='text-dark-red text-left font-semibold text-sm sm:text-[15px] md:text-base lg:text-lg'
+              variant="h6">{subtitle}</Typography>
         </AccordionSummary>
-        <AccordionDetails
-            sx={{
-              borderTop: "1px solid #FFD700",
-              padding: "20px",
-            }}
-        >
-          <Box sx={{display: {xs: "block", md: "flex"}, justifyContent: "space-between", mb: 2}}>
+        <AccordionDetails className='border-t border-yellow-2 p-5'>
+          <Box className='block md:flex justify-between mb-2'>
             <Box>
-              <Typography variant="h6" sx={{
-                fontSize: {xs: '16px', sm: '20px', md: '22px', lg: '24px'},
-                textAlign: {xs: 'center', sm: 'left'},
-                color: "#AE0101",
-                mb: 1
-              }}>
+              <Typography
+                  className='text-base sm:text-xl md:text-[22px] lg:text-2xl text-center sm:text-left text-dark-red mb-4'
+                  variant="h6">
                 {firstTitle}
               </Typography>
-              <Typography variant="body2"
-                          sx={{fontSize: {xs: '12px', sm: '16px', md: '18px', lg: '20px'}, textAlign: 'left'}}>
+              <Typography className='text-xs sm:text-base md:text-lg lg:text-xl text-left' variant="body2">
                 {firstText}
               </Typography>
             </Box>
             <Box sx={{ml: {md: 2}}}>
-              <Typography variant="h6" sx={{
-                fontSize: {xs: '16px', sm: '20px', md: '22px', lg: '24px'},
-                textAlign: {xs: 'center', sm: 'left'},
-                marginTop: {xs: 3, md: 0},
-                color: "#AE0101",
-                mb: 1
-              }}>
+              <Typography
+                  className='text-base sm:text-xl md:text-[22px] lg:text-2xl text-center sm:text-left text-dark-red mb-4'
+                  variant="h6">
                 {secondTitle}
               </Typography>
-              <Typography variant="body2"
-                          sx={{fontSize: {xs: '12px', sm: '16px', md: '18px', lg: '20px'}, textAlign: 'left'}}>
+              <Typography className='text-xs sm:text-base md:text-lg lg:text-xl text-left' variant="body2">
                 {secondText}
               </Typography>
             </Box>
           </Box>
-          <Typography
-              variant="h5"
-              sx={{
-                fontSize: {xs: '16px', sm: '20px', md: '22px', lg: '24px'},
-                color: "#AE0101",
-                textAlign: "center",
-                mb: 3
-              }}
-          >
+          <Typography className='text-base sm:text-xl md:text-[22px] lg:text-2xl text-dark-red text-center mb-6'
+                      variant="h5">
             What you will acquire
           </Typography>
-          <Box sx={{
-            display: {xs: "block", md: "flex"},
-            alignItems: 'center',
-            justifyContent: {xs: 'center', md: "space-between"}
-          }}>
+          <Box className='block md:flex items-center justify-center md:justify-between'>
             <Box>
               {textArray.map((text: string, index: number) => (
-                  <Box key={index} sx={{display: "flex", mb: 1}}>
-                    <CheckCircleIcon sx={{color: "#AE0101", mr: 1, height: {xs: '16px', sm: '20px', md: '24px'}}}/>
-                    <Typography variant="body2" sx={{
-                      fontSize: {xs: '12px', sm: '16px', md: '18px', lg: '20px'},
-                      textAlign: 'left'
-                    }}>{text}</Typography>
+                  <Box className='flex mb-4' key={index}>
+                    <CheckCircleIcon className='text-dark-red mr-2 h-4 sm:h-5 md:h-6'/>
+                    <Typography className='text-xs sm:text-base md:text-lg lg:text-xl text-left'
+                                variant="body2">{text}</Typography>
                   </Box>
               ))}
             </Box>

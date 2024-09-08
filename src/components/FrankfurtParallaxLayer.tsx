@@ -6,56 +6,24 @@ import frankfurtCityImage from "../img/FrankfurtCity.png";
 const FrankfurtParallaxLayer = () => {
   return (
       <>
-        <ParallaxLayer offset={2} speed={0} style={{zIndex: 1}}>
-          <div style={{
-            borderTop: '4px solid #AE0101',
-            backgroundImage: `url(${frankfurtSkyImage})`,
-            backgroundSize: 'cover',
-            height: '120vh',
-            width: '100%',
-          }}/>
+        <ParallaxLayer className='z-[1]' offset={2} speed={0}>
+          <div className='border-t-4 border-dark-red bg-cover h-[120vh] w-full'
+               style={{backgroundImage: `url(${frankfurtSkyImage})`}}/>
         </ParallaxLayer>
-        <ParallaxLayer
-            offset={2.7}
-            speed={1.2}
-            style={{
-              zIndex: '1',
-              backgroundColor: '#f3e8c2',
-              height: '100vh',
-            }}/>
-        <ParallaxLayer
-            offset={2}
-            speed={0.5}
-            style={{
-              top: '-260px',
-              zIndex: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-              marginLeft: '45%'
-            }}>
-          <div style={{
-            marginBottom: '16px'
-          }}>
-            <Typography variant="h2" sx={{color: '#FFFFFF', fontWeight: '400'}}>Join us! </Typography>
+        <ParallaxLayer className='z-[1] bg-bg-2 h-screen' offset={2.7} speed={1.2}/>
+        <ParallaxLayer className='z-[2] flex flex-col justify-center items-start ml-[45%]' offset={2} speed={0.5}
+                       style={{top: '-260px'}}>
+          <div className='mb-4'>
+            <Typography className='text-white font-medium' variant="h2">Join us! </Typography>
           </div>
-          <div style={{
-            lineHeight: '1.5'
-          }}>
-            <Typography variant="h4" sx={{color: '#1E1E1E', fontWeight: '400'}}>Lorem Ipsum is simply dummy text of.
+          <div className='leading-normal'>
+            <Typography className='text-my-black font-medium' variant="h4">Lorem Ipsum is simply dummy text of.
               of. </Typography>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={2.5} style={{zIndex: 3}}>
-          <div style={{
-            backgroundImage: `url(${frankfurtCityImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            borderBottom: '4px solid #AE0101',
-            height: '120vh',
-            width: '100%',
-          }}/>
+        <ParallaxLayer className='z-[3]' offset={2} speed={2.5}>
+          <div className='bg-cover bg-center border-b-4 border-dark-red h-[120vh] w-full'
+               style={{backgroundImage: `url(${frankfurtCityImage})`}}/>
         </ParallaxLayer>
       </>
   )
