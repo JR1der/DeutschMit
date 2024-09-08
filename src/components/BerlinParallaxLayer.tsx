@@ -6,62 +6,34 @@ import berlinCityImage from "../img/BerlinCity.png";
 const BerlinParallaxLayer = () => {
   return (
       <>
-        <ParallaxLayer offset={0} speed={0} style={{zIndex: 1}}>
-          <div style={{
-            backgroundImage: `url(${berlinSkyImage})`,
-            backgroundSize: 'cover',
-            height: '150vh',
-            width: '100%',
-          }}/>
+        <ParallaxLayer className='z-[1]' offset={0} speed={0}>
+          <div className='bg-cover w-full h-[150vh]' style={{backgroundImage: `url(${berlinSkyImage})`}}/>
         </ParallaxLayer>
+        <ParallaxLayer className='z-[1] bg-bg-2 h-[80vh]' offset={0.7} speed={0.5}/>
         <ParallaxLayer
-            offset={0.7}
-            speed={0.5}
-            style={{
-              zIndex: '1',
-              backgroundColor: '#f3e8c2',
-              height: '80vh',
-            }}/>
-        <ParallaxLayer
+            className='z-[2] top-[-5%] flex flex-col justify-center pl-[8%]'
             offset={0}
             speed={-0.2}
-            style={{
-              top: '-5%',
-              zIndex: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-              paddingLeft: '8%',
-            }}>
-          <div style={{
-            marginBottom: '16px'
-          }}>
-            <Typography variant="h2" sx={{
-              fontWeight: '400',
-              color: '#FFFFFF',
-              fontSize: {xs: '2rem', sm: '3rem', md: '4rem'},
-            }}>DeutschMIT</Typography>
+            style={{top: '-5%'}}
+        >
+          < div className='mb-4'>
+            <Typography
+                className="text-right sm:text-left text-white font-medium text-[32px] sm:text-[40px] md:text-[46px] lg:text-[50px] w-[90%]"
+                variant="h2"
+            >DeutschMITN</Typography>
           </div>
-          <div style={{
-            lineHeight: '1.5'
-          }}>
+          <div className='leading-normal'>
             <Typography variant="h4"
-                        sx={{fontWeight: '400', color: '#1E1E1E', fontSize: {xs: '1.5rem', sm: '2rem', md: '2.5rem'},}}>
-              A
-              new, revolutionary online language
-              school.</Typography>
+                        className='text-right sm:text-left font-normal text-my-black text-xl sm:text-2xl md:text-3xl lg:text-4xl w-[90%] sm:w-[70%] md:w-4/5 lg:w-[90%]'
+            >A new online language school
+            </Typography>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0.1} speed={1} style={{zIndex: 3}}>
-          <div style={{
-            borderBottom: '4px solid #AE0101',
-            backgroundImage: `url(${berlinCityImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'right',
-            height: '120vh',
-            width: '100%',
-          }}/>
+        <ParallaxLayer offset={0.1} speed={1} className='z-[3]'>
+          <div
+              className='border-b-4 border-dark-red bg-cover bg-right h-[120vh] w-full'
+              style={{backgroundImage: `url(${berlinCityImage})`}}
+          />
         </ParallaxLayer>
       </>
   )

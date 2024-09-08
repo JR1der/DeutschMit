@@ -6,7 +6,7 @@ import Footer from "./Footer.tsx";
 
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
   return (
-      <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+      <Box className='flex flex-col min-h-screen'>
         <NavBar/>
         <Page>{children}</Page>
         <Footer/>

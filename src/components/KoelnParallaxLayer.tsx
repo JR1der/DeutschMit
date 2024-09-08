@@ -12,7 +12,7 @@ const KoelnParallaxLayer = () => {
           <div style={{
             backgroundImage: `url(${koelnSkyImage})`,
             backgroundSize: 'cover',
-            height: '90vh',
+            height: '100vh',
             width: '100%',
           }}/>
         </ParallaxLayer>
@@ -44,7 +44,6 @@ const KoelnParallaxLayer = () => {
             <img src={logoImage} alt="Logo" style={{width: 'auto', maxHeight: '100%'}}/>
           </Box>
         </ParallaxLayer>
-
         <ParallaxLayer
             offset={0}
             speed={-0.2}
@@ -61,17 +60,25 @@ const KoelnParallaxLayer = () => {
             marginBottom: '16px'
           }}>
             <Typography variant="h2" sx={{
-              fontWeight: '400',
+              fontWeight: '500',
               color: '#AE0101',
-              fontSize: {xs: '1.5rem', sm: '2.5rem', md: '3.5rem'},
+              fontSize: {xs: '28px', sm: '32px', md: '38px', lg: '42px'},
+              textShadow: '0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.2)',
             }}>Courses</Typography>
           </div>
           <div style={{
             lineHeight: '1.5'
           }}>
             <Typography variant="h4"
-                        sx={{fontWeight: '400', color: '#000000', fontSize: {xs: '1rem', sm: '1.5rem', md: '2rem'},}}>
-              Here you can find the courses offered by DeutschMIT.</Typography>
+                        sx={{
+                          width: {xs: '50%', sm: '60%', md: '70%', lg: '80%%'},
+                          fontWeight: '400',
+                          color: '#000000',
+                          textAlign: 'left',
+                          fontSize: {xs: '20px', sm: '24px', md: '30px', lg: '36px'},
+                          textShadow: '0 0 8px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 0, 0, 0.3)', // Softer glow for the description
+                        }}>
+              Here you can find the courses offered by our online school.</Typography>
           </div>
         </ParallaxLayer>
         <ParallaxLayer offset={0.3} speed={1} style={{zIndex: 3}}>
@@ -79,8 +86,8 @@ const KoelnParallaxLayer = () => {
             borderBottom: '4px solid #AE0101',
             backgroundImage: `url(${koelnCityImage})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'right',
-            height: '90vh',
+            backgroundPosition: 'center',
+            height: '100vh',
             width: '100%',
           }}/>
         </ParallaxLayer>

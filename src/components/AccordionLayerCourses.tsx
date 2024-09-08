@@ -1,11 +1,13 @@
-import {Accordion, AccordionDetails, AccordionSummary, Box, Typography} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import {Box, Button, Typography} from "@mui/material";
+
 import {ParallaxLayer} from "@react-spring/parallax";
 import React from "react";
+import AccordionCourse from "./AccordionCourse.tsx";
+import {useNavigate} from "react-router-dom";
 
 const AccordionLayerCourses = () => {
   const [expanded, setExpanded] = React.useState<string | false>('panel1');
+  const navigate = useNavigate();
 
   const handleChange =
       (panel: string) => (_event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -16,357 +18,193 @@ const AccordionLayerCourses = () => {
       <ParallaxLayer offset={1} speed={0}
                      style={{
                        zIndex: 1,
-                       display: 'flex',
+                       display: 'block',
                        justifyContent: 'center',
-                       borderTop: '4px solid #AE0101',
-                       backgroundColor: '#FFFCEE'
+                       height: 'auto'
                      }}>
-        <Box sx={{width: '80%', p: 10}}>
-          <Accordion expanded={expanded === 'panel1'} defaultExpanded onChange={handleChange('panel1')}
-                     style={{borderRadius: '5px', border: "1px solid #FFD700", marginBottom: '10px'}}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1-content"
-                id="panel1-header"
-                sx={{p: '10px', pl: '30px'}}
-            >
-              <Typography variant="h5"
-                          sx={{width: '5%', textAlign: 'start', fontWeight: '500', color: '#AE0101'}}>A1</Typography>
-              <Typography variant="h6"
-                          sx={{fontWeight: '400', color: '#AE0101'}}>For complete
-                beginners</Typography>
-            </AccordionSummary>
-            <AccordionDetails
+        <Box style={{
+          zIndex: 1,
+          display: 'flex',
+          justifyContent: 'center',
+          borderTop: '4px solid #AE0101',
+          backgroundColor: '#FFFCEE',
+          height: 'auto'
+        }}>
+          <Box sx={{borderBottom: {md: '4px solid #AE0101'}, width: {xs: '100%', md: '80%'}, p: {xs: 5, md: 10}}}>
+            <AccordionCourse
+                expanded={expanded}
+                panel={"panel1"}
+                handleChange={handleChange}
+                title="A1"
+                subtitle="Beginner Level – Start your German journey"
+                firstTitle="Speaking"
+                firstText="Learn how to introduce yourself, greet others, and engage in basic conversations about everyday life."
+                secondTitle="Writing"
+                secondText="Master writing simple sentences, filling out basic forms, and drafting short personal messages."
+                textArray={[
+                  "Basic understanding of German vocabulary and expressions.",
+                  "Ability to greet, introduce yourself, and ask simple questions.",
+                  "Confidence in handling simple dialogues in familiar situations.",
+                  "Understanding simple written texts and instructions."
+                ]}
+            />
+            <AccordionCourse
+                expanded={expanded}
+                panel={"panel2"}
+                handleChange={handleChange}
+                title="A2"
+                subtitle="Elementary Level – Strengthen your basics"
+                firstTitle="Speaking"
+                firstText="Learn how to discuss your daily routines, express personal needs, and hold longer conversations about familiar topics."
+                secondTitle="Writing"
+                secondText="Develop skills in writing short paragraphs about yourself, your family, and your work, along with simple letters or emails."
+                textArray={[
+                  "Deeper understanding of essential vocabulary and grammar.",
+                  "Ability to handle routine conversations in shops, restaurants, and travel situations.",
+                  "Confidence in discussing past and future events.",
+                  "Reading and understanding short stories or personal emails."
+                ]}
+            />
+            <AccordionCourse
+                expanded={expanded}
+                panel={"panel3"}
+                handleChange={handleChange}
+                title="B1"
+                subtitle="Intermediate Level – Expand your communication"
+                firstTitle="Speaking"
+                firstText="Learn to express opinions, describe personal experiences, and hold in-depth conversations about work, hobbies, and current events."
+                secondTitle="Writing"
+                secondText="Gain skills to write detailed texts about your experiences, opinions, and simple reports."
+                textArray={[
+                  "Ability to navigate more complex social interactions.",
+                  "Confidence in expressing opinions and making requests.",
+                  "Deeper understanding of grammar and vocabulary for everyday communication.",
+                  "Reading comprehension for intermediate-level articles and literature."
+                ]}
+            />
+            <AccordionCourse
+                expanded={expanded}
+                panel={"panel4"}
+                handleChange={handleChange}
+                title="B2"
+                subtitle="Upper Intermediate – Achieve fluency"
+                firstTitle="Speaking"
+                firstText="Engage in detailed discussions about complex topics like politics, culture, and technology, with fluency and spontaneity."
+                secondTitle="Writing"
+                secondText="Master writing clear, well-structured essays, reports, and formal correspondence."
+                textArray={[
+                  "The ability to converse naturally in diverse situations.",
+                  "Fluency in articulating arguments and opinions in professional and social settings.",
+                  "Reading advanced articles, essays, and texts without much assistance.",
+                  "Mastery of more nuanced grammar and advanced vocabulary."
+                ]}
+            />
+            <AccordionCourse
+                expanded={expanded}
+                panel={"panel5"}
+                handleChange={handleChange}
+                title="C1"
+                subtitle="Advanced Level – Master German proficiency"
+                firstTitle="Speaking"
+                firstText="Discuss abstract topics, make presentations, and use the language in academic and professional contexts fluently."
+                secondTitle="Writing"
+                secondText="Learn to write complex texts with a clear structure and argumentation, suitable for business or academic purposes."
+                textArray={[
+                  "Native-like fluency and understanding of sophisticated language structures.",
+                  "Ability to communicate effectively in academic or professional environments.",
+                  "Proficiency in reading and understanding complex texts such as research papers and professional reports.",
+                  "Confidence in writing reports, articles, and academic papers."
+                ]}
+            />
+          </Box>
+          <Box
+              sx={{
+                borderBottom: '4px solid #AE0101',
+                borderLeft: '4px solid #AE0101',
+                backgroundColor: "#FFCC01",
+                display: {xs: 'none', md: "flex"},
+                flexDirection: 'column',
+                paddingTop: '40px',
+                zIndex: 1,
+                width: "40%",
+                padding: "50px",
+                textAlign: "left",
+                color: "#AE0101",
+              }}
+          >
+            <Typography variant="h4" sx={{fontWeight: "bold"}}>
+              Master the German Language at Your Own Pace
+            </Typography>
+            <Typography variant="h6" sx={{marginTop: "20px", color: '#000000'}}>
+              Whether you're starting as a beginner or refining your advanced skills, our online German language school
+              is
+              here to support your journey.
+            </Typography>
+            <Button
+                onClick={() => navigate("/register")}
                 sx={{
-                  borderTop: "1px solid #FFD700",
-                  padding: "20px",
+                  my: 2,
+                  color: '#FFCC01',
+                  display: 'block',
+                  backgroundColor: '#AE0101',
+                  p: 1,
+                  fontWeight: 600,
+                  fontSize: '1.1rem',
+                  textTransform: 'none',
+                  '&:hover': {
+                    backgroundColor: '#e1b016',
+                    color: '#FFFCEE',
+                    transition: '0.4s ease-in'
+                  }
                 }}
             >
-              <Box sx={{display: "flex", justifyContent: "space-between", mb: 2}}>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Speaking
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Writing
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-              </Box>
-              <Typography
-                  variant="h5"
-                  sx={{color: "#AE0101", textAlign: "center", mb: 3}}
-              >
-                What you will acquire
-              </Typography>
-              <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                <Box>
-                  {["Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply"].map((text, index) => (
-                      <Box key={index} sx={{display: "flex", alignItems: "center", mb: 1}}>
-                        <CheckCircleIcon sx={{color: "#AE0101", mr: 1}}/>
-                        <Typography variant="body2">{text}</Typography>
-                      </Box>
-                  ))}
-                </Box>
-                <Box
-                    sx={{
-                      border: "2px solid #FFD700",
-                      borderRadius: '5px',
-                      width: "50%",
-                      height: "120px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                >
-                </Box>
-              </Box>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}
-                     sx={{border: '1px solid #FFD700', borderRadius: '5px', marginBottom: '10px'}}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel2-content"
-                id="panel2-header"
-                sx={{p: '10px', pl: '30px'}}
-            >
-              <Typography variant="h5"
-                          sx={{width: '5%', textAlign: 'start', fontWeight: '500', color: '#AE0101'}}>A2</Typography>
-              <Typography variant="h6"
-                          sx={{fontWeight: '400', color: '#AE0101'}}>Pre-Intermediate</Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{borderTop: '1px solid #FFD700', p: '20px'}}>
-              <Box sx={{display: 'flex', justifyContent: 'space-between', mb: 3}}>
-                <Box>
-                  <Typography variant='h6' sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>Speaking</Typography>
-                  <Typography variant='body2' sx={{textAlign: 'left'}}>Lorem Ipsum is simply dummy asdasdasd text of.
-                    Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.</Typography>
-                </Box>
-                <Box>
-                  <Typography variant='h6' sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>Writing</Typography>
-                  <Typography variant='body2' sx={{textAlign: 'left'}}>Lorem Ipsum is simply dummy asdasdasd text of.
-                    Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.</Typography>
-                </Box>
-              </Box>
-              <Typography
-                  variant="h5"
-                  sx={{color: "#AE0101", textAlign: "center", mb: 3}}
-              >
-                What you will acquire
-              </Typography>
-              <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                <Box>
-                  {["Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply"].map((text, index) => (
-                      <Box key={index} sx={{display: "flex", alignItems: "center", mb: 1}}>
-                        <CheckCircleIcon sx={{color: "#AE0101", mr: 1}}/>
-                        <Typography variant="body2">{text}</Typography>
-                      </Box>
-                  ))}
-                </Box>
-                <Box
-                    sx={{
-                      border: "2px solid #FFD700",
-                      borderRadius: '5px',
-                      width: "50%",
-                      height: "120px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                >
-                </Box>
-              </Box>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}
-                     style={{borderRadius: '5px', border: "1px solid #FFD700", marginBottom: '10px'}}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1-content"
-                id="panel1-header"
-                sx={{p: '10px', pl: '30px'}}
-            >
-              <Typography variant="h5"
-                          sx={{width: '5%', textAlign: 'start', fontWeight: '500', color: '#AE0101'}}>B1</Typography>
-              <Typography variant="h6"
-                          sx={{fontWeight: '400', color: '#AE0101'}}>Intermediate</Typography>
-            </AccordionSummary>
-            <AccordionDetails
-                sx={{
-                  borderTop: "1px solid #FFD700",
-                  padding: "20px",
-                }}
-            >
-              <Box sx={{display: "flex", justifyContent: "space-between", mb: 2}}>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Speaking
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Writing
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-              </Box>
-              <Typography
-                  variant="h5"
-                  sx={{color: "#AE0101", textAlign: "center", mb: 3}}
-              >
-                What you will acquire
-              </Typography>
-              <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                <Box>
-                  {["Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply"].map((text, index) => (
-                      <Box key={index} sx={{display: "flex", alignItems: "center", mb: 1}}>
-                        <CheckCircleIcon sx={{color: "#AE0101", mr: 1}}/>
-                        <Typography variant="body2">{text}</Typography>
-                      </Box>
-                  ))}
-                </Box>
-                <Box
-                    sx={{
-                      border: "2px solid #FFD700",
-                      borderRadius: '5px',
-                      width: "50%",
-                      height: "120px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                >
-                </Box>
-              </Box>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}
-                     style={{borderRadius: '5px', border: "1px solid #FFD700", marginBottom: '10px'}}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1-content"
-                id="panel1-header"
-                sx={{p: '10px', pl: '30px'}}
-            >
-              <Typography variant="h5"
-                          sx={{width: '5%', textAlign: 'start', fontWeight: '500', color: '#AE0101'}}>B2</Typography>
-              <Typography variant="h6"
-                          sx={{fontWeight: '400', color: '#AE0101'}}>Upper-Intermediate</Typography>
-            </AccordionSummary>
-            <AccordionDetails
-                sx={{
-                  borderTop: "1px solid #FFD700",
-                  padding: "20px",
-                }}
-            >
-              <Box sx={{display: "flex", justifyContent: "space-between", mb: 2}}>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Speaking
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Writing
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-              </Box>
-              <Typography
-                  variant="h5"
-                  sx={{color: "#AE0101", textAlign: "center", mb: 3}}
-              >
-                What you will acquire
-              </Typography>
-              <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                <Box>
-                  {["Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply"].map((text, index) => (
-                      <Box key={index} sx={{display: "flex", alignItems: "center", mb: 1}}>
-                        <CheckCircleIcon sx={{color: "#AE0101", mr: 1}}/>
-                        <Typography variant="body2">{text}</Typography>
-                      </Box>
-                  ))}
-                </Box>
-                <Box
-                    sx={{
-                      border: "2px solid #FFD700",
-                      borderRadius: '5px',
-                      width: "50%",
-                      height: "120px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                >
-                </Box>
-              </Box>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}
-                     style={{borderRadius: '5px', border: "1px solid #FFD700", marginBottom: '10px'}}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1-content"
-                id="panel1-header"
-                sx={{p: '10px', pl: '30px'}}
-            >
-              <Typography variant="h5"
-                          sx={{width: '5%', textAlign: 'start', fontWeight: '500', color: '#AE0101'}}>C1</Typography>
-              <Typography variant="h6"
-                          sx={{fontWeight: '400', color: '#AE0101'}}>Advanced</Typography>
-            </AccordionSummary>
-            <AccordionDetails
-                sx={{
-                  borderTop: "1px solid #FFD700",
-                  padding: "20px",
-                }}
-            >
-              <Box sx={{display: "flex", justifyContent: "space-between", mb: 2}}>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Speaking
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="h6" sx={{textAlign: 'left', color: "#AE0101", mb: 1}}>
-                    Writing
-                  </Typography>
-                  <Typography variant="body2" sx={{textAlign: 'left'}}>
-                    Lorem Ipsum is simply dummy asdasdasd text of. Lorem Ipsum is simply
-                    dummy text of. Lorem Ipsum is sasdasimply dummy text of. Lorem Ipsum
-                    is simply dummy text of.
-                  </Typography>
-                </Box>
-              </Box>
-              <Typography
-                  variant="h5"
-                  sx={{color: "#AE0101", textAlign: "center", mb: 3}}
-              >
-                What you will acquire
-              </Typography>
-              <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                <Box>
-                  {["Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply", "Lorem Ipsum is simply dummy text of. Lorem Ipsum is simply"].map((text, index) => (
-                      <Box key={index} sx={{display: "flex", alignItems: "center", mb: 1}}>
-                        <CheckCircleIcon sx={{color: "#AE0101", mr: 1}}/>
-                        <Typography variant="body2">{text}</Typography>
-                      </Box>
-                  ))}
-                </Box>
-                <Box
-                    sx={{
-                      border: "2px solid #FFD700",
-                      borderRadius: '5px',
-                      width: "50%",
-                      height: "120px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                >
-                </Box>
-              </Box>
-            </AccordionDetails>
-          </Accordion>
+              Register now!
+            </Button>
+          </Box>
+        </Box>
+        <Box
+            sx={{
+              borderTop: '4px solid #AE0101',
+              borderBottom: '4px solid #AE0101',
+              backgroundColor: "#FFCC01",
+              display: {xs: 'flex', md: 'none'},
+              flexDirection: 'column',
+              paddingTop: '40px',
+              zIndex: 1,
+              width: "auto",
+              padding: "50px",
+              textAlign: "center",
+              color: "#AE0101",
+            }}
+        >
+          <Typography variant="h4"
+                      sx={{fontWeight: 'bold', fontSize: {xs: '20px', sm: '24px', md: '30px', lg: '36px'}}}>
+            Master the German Language at Your Own Pace
+          </Typography>
+          <Typography variant='h6' sx={{marginTop: '20px', color: '#000000'}}>
+            Whether you're starting as a beginner or refining your advanced skills, our online German language school is
+            here to support your journey.
+          </Typography>
+          <Button
+              onClick={() => navigate("/register")}
+              sx={{
+                my: 2,
+                color: '#FFCC01',
+                display: 'block',
+                backgroundColor: '#AE0101',
+                p: 1,
+                fontWeight: 600,
+                fontSize: '1.1rem',
+                textTransform: 'none',
+                '&:hover': {
+                  backgroundColor: '#e1b016',
+                  color: '#FFFCEE',
+                  transition: '0.4s ease-in'
+                }
+              }}
+          >
+            Register now!
+          </Button>
         </Box>
       </ParallaxLayer>
   )

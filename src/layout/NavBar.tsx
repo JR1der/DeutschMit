@@ -13,8 +13,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../img/DeutschMitLogTransparent.png';
 import {useNavigate} from "react-router-dom";
 
-const pages = ['Courses', 'About Us', 'FAQ'];
-const routes = ['/courses', '/about', '/faq'];
+const pages = ['Home', 'Courses', 'About Us', 'FAQ'];
+const routes = ['/', '/courses', '/about', '/faq'];
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
@@ -33,22 +33,23 @@ const NavBar: React.FC = () => {
     handleCloseNavMenu();
   };
   return (
-      <AppBar sx={{backgroundColor: '#FFFCEE', borderBottom: '4px solid #AE0101'}}>
+      <AppBar className='bg-bg-1 border-b-4 border-dark-red'>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Box sx={{display: {xs: 'none', md: 'flex'}, alignItems: 'center', mr: 2}}>
-              <img onClick={() => handleNavigate('/')} src={logo} alt="Logo"
-                   style={{cursor: 'pointer', height: '85px', marginRight: '10px', marginLeft: '20px'}}/>
+            <Box className='hidden md:flex items-center mr-2'>
+              <img onClick={() => handleNavigate('/')} src={logo} alt="Logo" className='cursor-pointer h-20 mr-2 ml-5'/>
             </Box>
-            <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+
+            {/*Mobile Menu Icon */}
+            <Box className='md:hidden flex items-center'>
               <IconButton
                   size="large"
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
                   onClick={handleOpenNavMenu}
-                  color="inherit"
+                  className='text-dark-red'
               >
-                <MenuIcon sx={{color: '#DD0303'}}/>
+                <MenuIcon/>
               </IconButton>
               <Menu
                   id="menu-appbar"
@@ -64,104 +65,46 @@ const NavBar: React.FC = () => {
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
-                  sx={{display: {xs: 'block', md: 'none'}}}
+                  className='md:hidden xs:block'
               >
                 {pages.map((page, index) => (
-                    <MenuItem sx={{
-                      '&:hover': {
-                        backgroundColor: '#ec3939',
-                        color: '#FFFCEE',
-                        transition: '0.4s ease-in-out'
-                      }
-                    }} key={page} onClick={() => handleNavigate(routes[index])}>
-                      <Button sx={{
-                        textAlign: 'center',
-                        color: '#DD0303',
-                        fontWeight: 600,
-                        fontSize: '1rem',
-                        textTransform: 'none',
-                        width: '100%',
-                        justifyContent: 'flex-start',
-                        '&:hover': {
-                          color: '#FFFCEE',
-                          transition: '0.4s ease-in-out'
-                        }
-                      }}>{page}</Button>
+                    <MenuItem
+                        className='hover:bg-dark-red hover:text-bg-1 transition-all hover:-translate-y-1 hover:scale-110 duration-300'
+                        key={page} onClick={() => handleNavigate(routes[index])}>
+                      <Button
+                          className='transition-all text-dark-red text-base font-semibold  capitalize w-full justify-start text-center hover:text-bg-1'
+                      >{page}</Button>
                     </MenuItem>
                 ))}
-                <MenuItem sx={{
-                  textAlign: 'center',
-                  backgroundColor: '#FFCC01', '&:hover': {
-                    backgroundColor: '#ec3939',
-                    color: '#FFFCEE',
-                    transition: '0.4s ease-in'
-                  }
-                }} onClick={handleCloseNavMenu}>
+                <MenuItem
+                    className='transition-all hover:-traslate-y-1 hover:scale-110 duration-300 text-center bg-my-yellow hover:bg-dark-red hover:text-bg-1'
+                    onClick={handleCloseNavMenu}>
                   <Button
-                      sx={{
-                        textAlign: 'center',
-                        color: '#DD0303',
-                        fontWeight: 600,
-                        fontSize: '1rem',
-                        textTransform: 'none',
-                        justifyContent: 'flex-start',
-                        '&:hover': {
-                          color: '#FFFCEE',
-                          transition: '0.4s ease-in-out'
-                        }
-                      }}
+                      className='transition-all text-dark-red text-base font-semibold  capitalize w-full justify-start text-center hover:text-bg-1'
                       onClick={() => handleNavigate("/register")}>Register</Button>
                 </MenuItem>
               </Menu>
             </Box>
-            <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, alignItems: 'right', justifyContent: 'right'}}>
-              <img onClick={() => handleNavigate('/')} src={logo} alt="Logo"
-                   style={{cursor: 'pointer', height: '85px'}}/>
+            <Box
+                className='flex grow md:hidden justify-end items-cenet'
+            >
+              <img className='cursor-pointer h-[85px]' onClick={() => handleNavigate('/')} src={logo} alt="Logo"/>
             </Box>
-            <Box sx={{
-              flexGrow: 1,
-              display: {xs: 'none', md: 'flex'},
-              justifyContent: 'space-around',
-              alignItems: 'center'
-            }}>
+            <Box
+                className='flex-grow hidden md:flex justify-around items-center'
+            >
               {pages.map((page, index) => (
                   <Button
+                      className='transition-all duration-300 hover:scale-110 my-2 text-dark-red font-semibold text-base capitalize hover:text-bg-1 hover:bg-dark-red p-2.5'
                       key={page}
                       onClick={() => handleNavigate(routes[index])}
-                      sx={{
-                        my: 2,
-                        color: '#DD0303',
-                        display: 'block',
-                        fontWeight: 600,
-                        fontSize: '1.1rem',
-                        textTransform: 'none',
-                        '&:hover': {
-                          backgroundColor: '#ec3939',
-                          color: '#FFFCEE',
-                          transition: '0.4s ease-in'
-                        }
-                      }}
                   >
                     {page}
                   </Button>
               ))}
               <Button
+                  className='transition-all duration-300 hover:scale-110 my-2 text-dark-red font-semibold text-base capitalize bg-my-yellow p-2.5 hover:bg-dark-red hover:text-bg-1'
                   onClick={() => handleNavigate("/register")}
-                  sx={{
-                    my: 2,
-                    color: '#DD0303',
-                    display: 'block',
-                    backgroundColor: '#FFCC01',
-                    p: 1,
-                    fontWeight: 600,
-                    fontSize: '1.1rem',
-                    textTransform: 'none',
-                    '&:hover': {
-                      backgroundColor: '#DD0303',
-                      color: '#FFFCEE',
-                      transition: '0.4s ease-in'
-                    }
-                  }}
               >
                 Register
               </Button>
