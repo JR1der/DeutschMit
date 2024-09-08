@@ -28,8 +28,8 @@ const AccordionCourse: React.FC<AccordionCourseProps> = ({
                                                            textArray,
                                                          }) => {
   return (
-      <Accordion expanded={expanded === panel} defaultExpanded onChange={handleChange(panel)}
-                 style={{borderRadius: '5px', border: "1px solid #FFD700", marginBottom: '10px'}}>
+      <Accordion className='mb-2.5 rounded-[5px] border-yellow-2 border' expanded={expanded === panel} defaultExpanded
+                 onChange={handleChange(panel)}>
         <AccordionSummary
             expandIcon={<ExpandMoreIcon/>}
             aria-controls="panel1-content"
@@ -39,13 +39,13 @@ const AccordionCourse: React.FC<AccordionCourseProps> = ({
           <Typography
               className='text-left font-semibold text-dark-red '
               variant="h5"
-                      sx={{
-                        fontSize: {xs: '16px', sm: '20px', md: '22px', lg: '24px'},
-                        width: {xs: '20%', sm: '15%', md: '10%', lg: '7%'},
-                        textAlign: 'left',
-                        fontWeight: '500',
-                        color: '#AE0101'
-                      }}>{title}</Typography>
+              sx={{
+                fontSize: {xs: '16px', sm: '20px', md: '22px', lg: '24px'},
+                width: {xs: '20%', sm: '15%', md: '10%', lg: '7%'},
+                textAlign: 'left',
+                fontWeight: '500',
+                color: '#AE0101'
+              }}>{title}</Typography>
           <Typography variant="h6"
                       sx={{
                         textAlign: 'left',
