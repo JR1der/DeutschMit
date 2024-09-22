@@ -1,9 +1,9 @@
-import {Box, Button, Typography} from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
-import {ParallaxLayer} from "@react-spring/parallax";
+import { ParallaxLayer } from "@react-spring/parallax";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import AccordionCourse from "./AccordionCourse.tsx";
-import {useNavigate} from "react-router-dom";
 
 const AccordionLayerCourses = () => {
   const [expanded, setExpanded] = React.useState<string | false>('panel1');
@@ -15,22 +15,9 @@ const AccordionLayerCourses = () => {
       };
 
   return (
-      <ParallaxLayer offset={1} speed={0}
-                     style={{
-                       zIndex: 1,
-                       display: 'block',
-                       justifyContent: 'center',
-                       height: 'auto'
-                     }}>
-        <Box style={{
-          zIndex: 1,
-          display: 'flex',
-          justifyContent: 'center',
-          borderTop: '4px solid #AE0101',
-          backgroundColor: '#FFFCEE',
-          height: 'auto'
-        }}>
-          <Box sx={{borderBottom: {md: '4px solid #AE0101'}, width: {xs: '100%', md: '80%'}, p: {xs: 5, md: 10}}}>
+      <ParallaxLayer className='z-[1] block justify-center h-auto' offset={1.1} speed={0}>
+        <Box className='z-[1] flex justify-center border-t-4 border-dark-red bg-bg-1 h-auto'>
+          <Box className='md:border-b-4 border-dark-red w-full md:w-4/5 p-5 md:p-10'>
             <AccordionCourse
                 expanded={expanded}
                 panel={"panel1"}
@@ -118,91 +105,34 @@ const AccordionLayerCourses = () => {
             />
           </Box>
           <Box
-              sx={{
-                borderBottom: '4px solid #AE0101',
-                borderLeft: '4px solid #AE0101',
-                backgroundColor: "#FFCC01",
-                display: {xs: 'none', md: "flex"},
-                flexDirection: 'column',
-                paddingTop: '40px',
-                zIndex: 1,
-                width: "40%",
-                padding: "50px",
-                textAlign: "left",
-                color: "#AE0101",
-              }}
-          >
-            <Typography variant="h4" sx={{fontWeight: "bold"}}>
+              className='border-b-4 border-l-4 border-dark-red bg-my-yellow hidden md:flex flex-col pt-10 p-12 z-[1] w-2/5 text-left text-dark-red'>
+            <Typography className='text-2xl lg:text-3xl font-bold' variant="h4">
               Master the German Language at Your Own Pace
             </Typography>
-            <Typography variant="h6" sx={{marginTop: "20px", color: '#000000'}}>
+            <Typography className='text-lg lg:text-xl mt-5 text-my-black' variant="h6">
               Whether you're starting as a beginner or refining your advanced skills, our online German language school
               is
               here to support your journey.
             </Typography>
             <Button
-                onClick={() => navigate("/register")}
-                sx={{
-                  my: 2,
-                  color: '#FFCC01',
-                  display: 'block',
-                  backgroundColor: '#AE0101',
-                  p: 1,
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  textTransform: 'none',
-                  '&:hover': {
-                    backgroundColor: '#e1b016',
-                    color: '#FFFCEE',
-                    transition: '0.4s ease-in'
-                  }
-                }}
-            >
+                className='transition duration-300 hover:scale-110 my-4 text-my-yellow block bg-dark-red p-2 font-semibold text-lg capitalize hover:bg-yellow-3 hover:text-bg-2 '
+                onClick={() => navigate("/register")}>
               Register now!
             </Button>
           </Box>
         </Box>
         <Box
-            sx={{
-              borderTop: '4px solid #AE0101',
-              borderBottom: '4px solid #AE0101',
-              backgroundColor: "#FFCC01",
-              display: {xs: 'flex', md: 'none'},
-              flexDirection: 'column',
-              paddingTop: '40px',
-              zIndex: 1,
-              width: "auto",
-              padding: "50px",
-              textAlign: "center",
-              color: "#AE0101",
-            }}
-        >
-          <Typography variant="h4"
-                      sx={{fontWeight: 'bold', fontSize: {xs: '20px', sm: '24px', md: '30px', lg: '36px'}}}>
+            className='items-center border-t-4 border-b-4 border-dark-red bg-my-yellow flex md:hidden flex-col pt-6 z-[1] w-auto p-5 text-center text-dark-red'>
+          <Typography className='font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl' variant="h4">
             Master the German Language at Your Own Pace
           </Typography>
-          <Typography variant='h6' sx={{marginTop: '20px', color: '#000000'}}>
+          <Typography className='mt-4 text-my-black text-base sm:text-lg md:text-xl lg:text-2xl' variant='h6'>
             Whether you're starting as a beginner or refining your advanced skills, our online German language school is
             here to support your journey.
           </Typography>
           <Button
-              onClick={() => navigate("/register")}
-              sx={{
-                my: 2,
-                color: '#FFCC01',
-                display: 'block',
-                backgroundColor: '#AE0101',
-                p: 1,
-                fontWeight: 600,
-                fontSize: '1.1rem',
-                textTransform: 'none',
-                '&:hover': {
-                  backgroundColor: '#e1b016',
-                  color: '#FFFCEE',
-                  transition: '0.4s ease-in'
-                }
-              }}
-          >
+              className='w-3/5 transition duration-300 hover:scale-110 my-4 text-my-yellow block bg-dark-red p-2 font-semibold text-lg capitalize hover:bg-yellow-3 hover:text-bg-2 '
+              onClick={() => navigate("/register")}>
             Register now!
           </Button>
         </Box>

@@ -12,6 +12,7 @@ export default {
                 'dark-red': '#AE0101',
                 'my-yellow': '#FFCC01',
                 'yellow-2': '#FFD700',
+                'yellow-3': '#e1b016',
                 'bg-1': '#FFFCEE',
                 'bg-2': '#f3e8c2',
                 'my-black': '#1E1E1E'
